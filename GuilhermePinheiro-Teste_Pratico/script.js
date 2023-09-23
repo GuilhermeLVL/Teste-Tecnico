@@ -48,37 +48,38 @@ function displayData(data, category) {
   limitedData.forEach((item, index) => {
     const card = document.createElement('div');
     card.classList.add('card');
+    card.classList.add('transparent-bg');
     card.classList.add('my-3');
     const collapseId = `${category}-collapse-${index}`;
     
     if (category === 'films') {
       card.innerHTML = `
-        <div class="card-header" id="heading${collapseId}">
+        <div class="card-header " id="heading${collapseId}">
           <h5 class="mb-0">
-            <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#${collapseId}" aria-expanded="false" aria-controls="${collapseId}">
+            <button class="btn  btn-outline-warning w-100" data-toggle="collapse" data-target="#${collapseId}" aria-expanded="false" aria-controls="${collapseId}">
               ${item.title.charAt(0).toUpperCase() + item.title.slice(1)}
             </button>
           </h5>
         </div>
 
-        <div id="${collapseId}" class="collapse" aria-labelledby="heading${collapseId}" data-parent="#dados">
-          <div class="card-body">
+        <div id="${collapseId}" class="collapse " aria-labelledby="heading${collapseId}" data-parent="#dados">
+          <div class="card-body text-white ">
             ${generateCardContent(item, category, collapseId)}
           </div>
         </div>
       `;
     } else {
       card.innerHTML = `
-        <div class="card-header" id="heading${collapseId}">
+        <div class="card-header " id="heading${collapseId}">
           <h5 class="mb-0">
-            <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#${collapseId}" aria-expanded="false" aria-controls="${collapseId}">
+            <button class="btn  btn-outline-warning w-100" type="button" data-toggle="collapse" data-target="#${collapseId}" aria-expanded="false" aria-controls="${collapseId}">
               ${item.name.charAt(0).toUpperCase() + item.name.slice(1)}
             </button>
           </h5>
         </div>
 
-        <div id="${collapseId}" class="collapse" aria-labelledby="heading${collapseId}" data-parent="#dados">
-          <div class="card-body">
+        <div id="${collapseId}" class="collapse " aria-labelledby="heading${collapseId}" data-parent="#dados">
+          <div class="card-body text-white">
             ${generateCardContent(item, category, collapseId)}
           </div>
         </div>
