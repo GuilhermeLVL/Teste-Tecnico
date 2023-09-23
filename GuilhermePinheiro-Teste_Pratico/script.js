@@ -32,15 +32,25 @@ function loadData(category) {
       // Exibe informações específicas para cada categoria
       if (category === 'people') {
         displayText = `<strong>Name:</strong> ${item.name}, <strong>Gender:</strong> ${item.gender}, <strong>Height:</strong> ${item.height}`;
-      } else if (category === 'films') {
+      } 
+      
+      else if (category === 'films') {
         displayText = `<strong>Title:</strong> ${item.title}, <strong>Episode:</strong> ${item.episode_id}, <strong>Director:</strong> ${item.director}`;
-      } else if (category === 'planets') {
+      } 
+      
+      else if (category === 'planets') {
         displayText = `<strong>Name:</strong> ${item.name}, <strong>Climate:</strong> ${item.climate}, <strong>Population:</strong> ${item.population}`;
-      } else if (category === 'species') {
+      }
+      
+      else if (category === 'species') {
         displayText = `<strong>Name:</strong> ${item.name}, <strong>Classification:</strong> ${item.classification}, <strong>Language:</strong> ${item.language}`;
-      } else if (category === 'starships') {
+      } 
+      
+      else if (category === 'starships') {
         displayText = `<strong>Name:</strong> ${item.name}, <strong>Model:</strong> ${item.model}, <strong>Manufacturer:</strong> ${item.manufacturer}`;
-      } else if (category === 'vehicles') {
+      } 
+      
+      else if (category === 'vehicles') {
         displayText = `<strong>Name:</strong> ${item.name}, <strong>Model:</strong> ${item.model}, <strong>Manufacturer:</strong> ${item.manufacturer}`;
       }
   
