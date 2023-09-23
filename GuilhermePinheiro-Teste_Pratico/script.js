@@ -1,10 +1,13 @@
-//Passando o valor de forma dinâmica para coletar os dados da api
 function loadData(category) {
     $.ajax({
       url: `https://swapi.dev/api/${category}/`,
       method: 'GET',
       success: function(data) {
-        displayData(data.results, category);
+        if (category === 'films') {
+          displayFilms(data.results);
+        } else {
+          displayData(data.results, category);
+        }
       },
       error: function(error) {
         console.error(`Erro ao obter os dados da categoria ${category} da API SWAPI:`, error);
@@ -12,12 +15,10 @@ function loadData(category) {
     });
   }
   
-  //Pegando a DIV pelo Id e Limpando o conteudo
   function displayData(data, category) {
     const dataContainer = document.getElementById('dados');
-    dataContainer.innerHTML = ''; 
+    dataContainer.innerHTML = '';  // Limpa o conteúdo anterior
   
-    //Verificando se há dados 
     if (data.length === 0) {
       dataContainer.innerHTML = `<p>Nenhum dado encontrado para a categoria ${category}.</p>`;
       return;
@@ -29,37 +30,49 @@ function loadData(category) {
   
       let displayText = '';
   
-      // Exibe informações específicas para cada categoria
       if (category === 'people') {
         displayText = `<strong>Name:</strong> ${item.name}, <strong>Gender:</strong> ${item.gender}, <strong>Height:</strong> ${item.height}`;
-      } 
-      
-      else if (category === 'films') {
-        displayText = `<strong>Title:</strong> ${item.title}, <strong>Episode:</strong> ${item.episode_id}, <strong>Director:</strong> ${item.director}`;
-      } 
-      
-      else if (category === 'planets') {
+      } else if (category === 'planets') {
         displayText = `<strong>Name:</strong> ${item.name}, <strong>Climate:</strong> ${item.climate}, <strong>Population:</strong> ${item.population}`;
-      }
-      
-      else if (category === 'species') {
+      } else if (category === 'species') {
         displayText = `<strong>Name:</strong> ${item.name}, <strong>Classification:</strong> ${item.classification}, <strong>Language:</strong> ${item.language}`;
-      } 
-      
-      else if (category === 'starships') {
+      } else if (category === 'starships') {
         displayText = `<strong>Name:</strong> ${item.name}, <strong>Model:</strong> ${item.model}, <strong>Manufacturer:</strong> ${item.manufacturer}`;
-      } 
-      
-      else if (category === 'vehicles') {
+      } else if (category === 'vehicles') {
         displayText = `<strong>Name:</strong> ${item.name}, <strong>Model:</strong> ${item.model}, <strong>Manufacturer:</strong> ${item.manufacturer}`;
       }
   
       itemElement.innerHTML = `
-        <h2>${item.name.charAt(0).toUpperCase() + item.name.slice(1)}</h2>
+  <h2>${item.name.charAt(0).toUpperCase() + item.name.slice(1)}</h2>
         ${displayText}
       `;
   
       dataContainer.appendChild(itemElement);
+    });
+  }
+  
+  function displayFilms(films) {
+    const dataContainer = document.getElementById('dados');
+    dataContainer.innerHTML = '';  // Limpa o conteúdo anterior
+  
+    if (films.length === 0) {
+      dataContainer.innerHTML = '<p>Nenhum filme encontrado.</p>';
+      return;
+    }
+  
+    films.forEach(film => {
+      const filmElement = document.createElement('div');
+      filmElement.classList.add('item');
+      filmElement.innerHTML = `
+        <h2>${film.title}</h2>
+        <strong>Title:</strong> ${film.title}<br>
+        <strong>Episode:</strong> ${film.episode_id}<br>
+        <strong>Director:</strong> ${film.director}<br>
+        <strong>Producer:</strong> ${film.producer}<br>
+        <strong>Release Date:</strong> ${film.release_date}
+      `;
+  
+      dataContainer.appendChild(filmElement);
     });
   }
   
