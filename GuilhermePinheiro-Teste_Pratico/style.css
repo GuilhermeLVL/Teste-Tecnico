@@ -1,0 +1,24 @@
+.my-button {
+    transition: background 0.3s ease;
+    border-radius:5px;
+    font-size: 25px;
+    
+  }
+  
+  .my-button:hover {
+    color: rgb(255, 196, 0);
+   text-shadow: 1px 1px 30px rgba(255, 255, 0, 0.63);
+    
+    
+  }
+
+  .bg-image {
+    background-image: url('Images/wallpaperbetter.com_1920x1080.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    height: 100vh;
+    color: white; 
+  }
+
+  
