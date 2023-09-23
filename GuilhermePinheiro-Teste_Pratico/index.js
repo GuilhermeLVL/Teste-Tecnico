@@ -1,4 +1,7 @@
 
+/*
+
+
 
 preencherContador()
 
@@ -19,3 +22,15 @@ return axios.get(`https://swapi.dev/api/${param}`);
 
 
 }
+
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+*/
+/*---------------------TESTE-------------------------------------------*/
+
+
+
+
+  
+  
+  
