@@ -64,6 +64,7 @@ function loadData(category) {
       const filmElement = document.createElement('div');
       filmElement.classList.add('item');
       filmElement.innerHTML = `
+
         <h2>${film.title}</h2>
         <strong>Title:</strong> ${film.title}<br>
         <strong>Episode:</strong> ${film.episode_id}<br>
