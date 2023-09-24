@@ -41,8 +41,15 @@
   }
 
   
-
+.nav-gif{
+width: 15vh;
+height: 7.5vh;
+border-radius: 10vh;
+}
+.nav-gif:hover{
   
+  box-shadow:  100px 100px 300px rgb(255, 255, 0);
+}
 
 
   

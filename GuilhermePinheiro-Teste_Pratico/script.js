@@ -68,7 +68,8 @@ function displayData(data, category) {
             ${generateCardContent(item, category, collapseId)}
           </div>
         </div>
-      `;
+      `
+      dataBtn.innerHTML = ``;
     } else {
       card.innerHTML = `
         <div class="card-header " id="heading${collapseId}">
@@ -84,11 +85,13 @@ function displayData(data, category) {
             ${generateCardContent(item, category, collapseId)}
           </div>
         </div>
-      `;
+      `
+      dataBtn.innerHTML = ` <button type="button" class="btn btn-outline-danger" onclick="loadPreviousPage()">Página Anterior</button>
+    <button type="button" class="btn btn-outline-success" onclick="loadNextPage()">Próxima Página</button> `
+      ;
     }
 
-    dataBtn.innerHTML = ` <button type="button" class="btn btn-outline-danger" onclick="loadPreviousPage()">Página Anterior</button>
-    <button type="button" class="btn btn-outline-success" onclick="loadNextPage()">Próxima Página</button> `
+    
 
     dataContainer.appendChild(card);
   });
