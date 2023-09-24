@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Gruppo&display=swap');
 
 .my-button {
     transition: background 0.3s ease;
@@ -55,5 +55,13 @@ border-radius: 10vh;
   font-family: 'Bebas Neue', sans-serif;
 }
   
- 
+ .card-text{
+  padding-top: 1vh;
+  font-family:sans-serif; 
+  color: rgba(255, 255, 255, 0.534);
+ }
+ .card-text:hover{
+  
+  color: rgb(255, 252, 252);
+ }
   
