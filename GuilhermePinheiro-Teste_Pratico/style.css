@@ -64,4 +64,10 @@ border-radius: 10vh;
   
   color: rgb(255, 252, 252);
  }
-  
+ 
+ #loading-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}

@@ -2,6 +2,10 @@ let currentPage = 1;
 let currentCategory = '';
 let maxItemsToShow = 6;  // Defina o número máximo de itens a serem exibidos
 
+const loading = document.getElementById('loading-spinner');
+loading.style.display = 'none'
+  
+
 function loadData(category) {
   currentCategory = category;
   currentPage = 1;
@@ -11,6 +15,7 @@ function loadData(category) {
 function loadNextPage() {
   currentPage++;
   fetchData(currentCategory, currentPage);
+  
 }
 
 function loadPreviousPage() {
@@ -21,14 +26,19 @@ function loadPreviousPage() {
 }
 
 function fetchData(category, page) {
+  
+
+    loading.style.display = 'block'
   $.ajax({
     url: `https://swapi.dev/api/${category}/?page=${page}`,
     method: 'GET',
     success: function(data) {
       displayData(data.results, category);
+      loading.style.display = 'none'
     },
     error: function(error) {
       console.error(`Erro ao obter os dados da categoria ${category} da API SWAPI:`, error);
+      loading.style.display = 'none'
     }
   });
 }
@@ -87,7 +97,10 @@ function displayData(data, category) {
         </div>
       `
       dataBtn.innerHTML = ` <button type="button" class="btn btn-outline-danger" onclick="loadPreviousPage()">Página Anterior</button>
+
+
     <button type="button" class="btn btn-outline-success" onclick="loadNextPage()">Próxima Página</button> `
+   
       ;
     }
 
