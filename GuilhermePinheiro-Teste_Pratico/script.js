@@ -35,6 +35,7 @@ function fetchData(category, page) {
 
 function displayData(data, category) {
   const dataContainer = document.getElementById('dados');
+  const dataBtn = document.getElementById('btn-dados');
   dataContainer.innerHTML = '';
 
   if (data.length === 0) {
@@ -85,6 +86,9 @@ function displayData(data, category) {
         </div>
       `;
     }
+
+    dataBtn.innerHTML = ` <button type="button" class="btn btn-outline-danger" onclick="loadPreviousPage()">Página Anterior</button>
+    <button type="button" class="btn btn-outline-success" onclick="loadNextPage()">Próxima Página</button> `
 
     dataContainer.appendChild(card);
   });

@@ -24,6 +24,16 @@
 
     
   }
+  .bg-card {
+    background-image: url('https://1.bp.blogspot.com/-UpOsSMslM1w/UoABIJTbEjI/AAAAAAAAAN4/ABOQhmuyvSs/s1600/tumblr_mm07j7ZgGq1r3czd7o1_500.gif');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    height: 100%;
+    color: white; 
+
+    
+  }
 
   .transparent-bg {
     background-color: rgba(0, 0, 0, 0.5); /* Adiciona uma cor de fundo com 50% de opacidade */
