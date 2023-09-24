@@ -1,4 +1,4 @@
-
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
 
 .my-button {
     transition: background 0.3s ease;
@@ -51,7 +51,9 @@ border-radius: 10vh;
   box-shadow:  100px 100px 300px rgb(255, 255, 0);
 }
 
-
+.nav-fonts{
+  font-family: 'Bebas Neue', sans-serif;
+}
   
  
   
