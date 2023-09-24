@@ -2,8 +2,10 @@ let currentPage = 1;
 let currentCategory = '';
 let maxItemsToShow = 6;  // Defina o número máximo de itens a serem exibidos
 
-const loading = document.getElementById('loading-spinner');
-loading.style.display = 'none'
+const loadingContainer = document.getElementById('loading-container');
+  loadingContainer.innerHTML = '<div class="spinner-border text-warning" role="status" id="loading-spinner"><span class="visually-hidden">Carregando...</span></div>';
+
+  loadingContainer.style.display = 'none';
   
 
 function loadData(category) {
@@ -28,17 +30,17 @@ function loadPreviousPage() {
 function fetchData(category, page) {
   
 
-    loading.style.display = 'block'
+    loadingContainer.style.display = 'block';
   $.ajax({
     url: `https://swapi.dev/api/${category}/?page=${page}`,
     method: 'GET',
     success: function(data) {
       displayData(data.results, category);
-      loading.style.display = 'none'
+      loadingContainer.style.display = 'none';
     },
     error: function(error) {
       console.error(`Erro ao obter os dados da categoria ${category} da API SWAPI:`, error);
-      loading.style.display = 'none'
+      loadingContainer.style.display = 'none';
     }
   });
 }
@@ -47,9 +49,11 @@ function displayData(data, category) {
   const dataContainer = document.getElementById('dados');
   const dataBtn = document.getElementById('btn-dados');
   dataContainer.innerHTML = '';
+  
 
   if (data.length === 0) {
     dataContainer.innerHTML = `<p>Nenhum dado encontrado para a categoria ${category}.</p>`;
+   
     return;
   }
 
@@ -114,6 +118,7 @@ function generateCardContent(item, category, collapseId) {
   let content = '';
 
   if (category === 'people') {
+    
     content = `
     <strong>Name:</strong> ${item.name}<br>
     <strong>Gender:</strong> ${item.gender}<br> 
@@ -121,6 +126,7 @@ function generateCardContent(item, category, collapseId) {
     <strong>Mass:</strong> ${item.mass}<br>
     <strong>Birth Year:</strong> ${item.birth_year}<br>
     `;
+    
   } else if (category === 'planets') {
     content = `<strong>Name:</strong> ${item.name}<br> 
     <strong>Climate:</strong> ${item.climate}<br> 
